@@ -26,7 +26,7 @@ const config = {
             template: './src/index.html',
             filename: 'index.html',
             chunks: ['index'],
-            inject: 'body'
+            inject: 'body',
         }),
 
         new MiniCssExtractPlugin(),
@@ -44,7 +44,10 @@ const config = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-                type: 'asset',
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[hash][ext][query]'
+                }
             },
         ],
     },
